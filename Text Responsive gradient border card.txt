@@ -1,0 +1,10 @@
+========== CARD ==========
+.card__title
+Awesome Card 01
+
+.card__description
+Gradient card, with bright edges 
+that gives it a cool look.
+
+.card__button
+Continue learning

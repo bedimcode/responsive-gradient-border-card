@@ -1,0 +1,135 @@
+/*=============== CARD ===============*/
+.container{
+   display: grid;
+   place-items: center;
+   margin-inline: 1.5rem;
+}
+
+.card{
+   &__container,
+   &__article{
+      display: grid;
+      gap: 2rem;
+   }
+   &__container{
+      padding-block: 4.5rem;
+   }
+   &__article{
+      --hue-1: 210;
+      --hue-2: 238;
+      position: relative;
+      justify-items: center;
+      color: var(--white-color);
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      border: 4px solid transparent;
+      background: linear-gradient(
+                  var(--container-color), 
+                  var(--container-color)) padding-box,
+                  
+                  linear-gradient(135deg, 
+                  hsl(var(--hue-1), 85%, 70%) 0%, 
+                  var(--container-color),
+                  var(--container-color),
+                  hsl(var(--hue-2), 70%, 55%) 100%) border-box;
+      border-radius: 1.25rem ;
+      overflow: hidden;
+   }
+   // shapes card
+   &__shape-1{
+      position: relative;
+      width: 148px;
+      height: 148px;
+      background: linear-gradient(140deg, 
+                  hsl(var(--hue-1), 75%, 25%) 3%, 
+                  hsl(var(--hue-2), 65%, 45%) 100%);
+      border-radius: 2rem;
+      z-index: 2;
+   }
+   &__shape-2{
+      width: 116px;
+      height: 116px;
+      background: linear-gradient(140deg, 
+                  hsl(var(--hue-1), 70%, 50%) 3%, 
+                  hsl(var(--hue-2), 95%, 45%) 100%);
+      border-radius: 1.5rem;
+   }
+   &__shape-3{
+      width: 76px;
+      height: 76px;
+      background: linear-gradient(140deg, 
+                  hsl(var(--hue-1), 85%, 60%) 3%, 
+                  hsl(var(--hue-2), 85%, 60%) 100%);
+      border-radius: 1rem;
+      display: grid;
+      place-items: center;
+   }
+   &__shape-2,
+   &__shape-3{
+      position: absolute;
+      inset: 0;
+      margin: auto;
+   }
+   &__icon{
+      font-size: 3rem;
+   }
+   &__data{
+      z-index: 3;
+   }
+   &__title{
+      font-size: var(--h2-font-size);
+      margin-bottom: .25rem;
+      font-weight: 600;
+   }
+   &__description{
+      margin-bottom: 1.5rem;
+   }
+   &__button{
+      display: inline-block;
+      background-color: var(--white-color);
+      padding: 1rem 1.5rem;
+      border-radius: .5rem;
+      color: var(--black-color);
+      font-weight: 500;
+   }
+   // Color change
+   &__orange{
+      --hue-1: 300;
+      --hue-2: 30;
+   }
+   &__green{
+      --hue-1: 180;
+      --hue-2: 50;
+   }
+   // Shapes scale
+   &__scale-1{
+      width: 148px;
+      height: 148px;
+      background: linear-gradient(140deg, 
+                  hsl(var(--hue-1), 70%, 50%) 3%, 
+                  hsl(var(--hue-2), 95%, 45%) 100%);
+      border-radius: 2rem;
+      top: 4rem;
+   }
+   &__scale-2{
+      width: 116px;
+      height: 116px;
+      background: var(--container-color);
+      border-radius: 1.5rem;
+      top: 5rem;
+   }
+   &__scale-1,
+   &__scale-2{
+      position: absolute;
+      filter: blur(24px);
+      transition: transform .3s ease-in;
+   }
+   // Shapes scale animation
+   &__article:hover .card__scale-1{
+      transform: scale(6);
+   }
+   &__article:hover .card__scale-2{
+      transform: scale(6);
+      transition-delay: .1s;
+   }
+}

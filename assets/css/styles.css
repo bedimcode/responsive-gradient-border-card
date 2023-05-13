@@ -1,6 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
@@ -9,15 +8,12 @@
   --black-color: hsl(210, 12%, 15%);
   --body-color: hsl(210, 16%, 12%);
   --container-color: hsl(210, 24%, 8%);
-
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
 }
-
-/*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
   :root {
     --h2-font-size: 1.5rem;
@@ -43,25 +39,152 @@ a {
 }
 
 /*=============== CARD ===============*/
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+}
 
-
-/* Shapes card */
-
-
-/* Color change */
-
-
-/* Shapes scale */
-
-
-/* Shapes scale animation */
-
+.card__container, .card__article {
+  display: grid;
+  gap: 2rem;
+}
+.card__container {
+  padding-block: 4.5rem;
+}
+.card__article {
+  --hue-1: 210;
+  --hue-2: 238;
+  position: relative;
+  justify-items: center;
+  color: var(--white-color);
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  border: 4px solid transparent;
+  background: linear-gradient(var(--container-color), var(--container-color)) padding-box, linear-gradient(135deg, hsl(var(--hue-1), 85%, 70%) 0%, var(--container-color), var(--container-color), hsl(var(--hue-2), 70%, 55%) 100%) border-box;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+.card__shape-1 {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 75%, 25%) 3%, hsl(var(--hue-2), 65%, 45%) 100%);
+  border-radius: 2rem;
+  z-index: 2;
+}
+.card__shape-2 {
+  width: 116px;
+  height: 116px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 70%, 50%) 3%, hsl(var(--hue-2), 95%, 45%) 100%);
+  border-radius: 1.5rem;
+}
+.card__shape-3 {
+  width: 76px;
+  height: 76px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 85%, 60%) 3%, hsl(var(--hue-2), 85%, 60%) 100%);
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+}
+.card__shape-2, .card__shape-3 {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+.card__icon {
+  font-size: 3rem;
+}
+.card__data {
+  z-index: 3;
+}
+.card__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.card__description {
+  margin-bottom: 1.5rem;
+}
+.card__button {
+  display: inline-block;
+  background-color: var(--white-color);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  color: var(--black-color);
+  font-weight: 500;
+}
+.card__orange {
+  --hue-1: 300;
+  --hue-2: 30;
+}
+.card__green {
+  --hue-1: 180;
+  --hue-2: 50;
+}
+.card__scale-1 {
+  width: 148px;
+  height: 148px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 70%, 50%) 3%, hsl(var(--hue-2), 95%, 45%) 100%);
+  border-radius: 2rem;
+  top: 4rem;
+}
+.card__scale-2 {
+  width: 116px;
+  height: 116px;
+  background: var(--container-color);
+  border-radius: 1.5rem;
+  top: 5rem;
+}
+.card__scale-1, .card__scale-2 {
+  position: absolute;
+  filter: blur(24px);
+  transition: transform 0.3s ease-in;
+}
+.card__article:hover .card__scale-1 {
+  transform: scale(6);
+}
+.card__article:hover .card__scale-2 {
+  transform: scale(6);
+  transition-delay: 0.1s;
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-
-
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem;
+  }
+  .card__article {
+    padding: 2rem 1rem;
+  }
+  .card__scale-1 {
+    top: 2rem;
+  }
+  .card__scale-2 {
+    top: 3rem;
+  }
+}
 /* For medium devices */
-
-
+@media screen and (min-width: 576px) {
+  .card__container {
+    grid-template-columns: 328px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 328px);
+  }
+}
 /* For large devices */
+@media screen and (min-width: 1120px) {
+  .container {
+    height: 100vh;
+  }
+  .card__container {
+    grid-template-columns: repeat(3, 345px);
+  }
+  .card__article {
+    padding: 4.5rem 2rem 3.5rem;
+  }
+}
